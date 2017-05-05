@@ -8,10 +8,10 @@
     <title>Richmond Market Value Analysis 2017</title>
 
     <!-- Bootstrap core CSS/JS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/leaflet.css"/>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/leaflet.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     
     <style>
         body {
@@ -21,6 +21,9 @@
           padding: 40px 80px;
           text-align: center;
         }
+        #map{
+          width: 100%;
+        }
     </style>
     
   </head>
@@ -28,7 +31,7 @@
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -45,7 +48,6 @@
             <li><a href="about.html">About</a></li>
           </ul>
         </div>
-      </div>
     </nav>
 
     <div class="container">
@@ -55,30 +57,24 @@
         <p class="lead">The <b>Market Value Analysis</b> (MVA) is a tool to assist residents and policymakers identify and understand the elements of their local real estate markets. It is an objective, data-driven tool built on local administrative data and validated with local experts. With an MVA, public officials and private actors can more precisely target intervention strategies in weak markets and support sustainable growth in stronger markets.</p>
         <p>The Richmond MVA was completed in 2017 by Reinvestment Fund in partnership with the City of Richmond and the Invest Health RVA team.</p>
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="well">
-        <div id="mainmap"></div>
+
+      <div class="row well">
+          <div id="map" style="height:500px;"></div>
       </div>
     </div>
 
-
     <script>
       // initialize the map
-      var map = L.map('mainmap', {
-          center: [37.538736, -77.470611],
-          zoom: 10,
-          zoomControl: true});
+      var map = L.map('map').setView([37.5387, -77.4706], 11);
 
-      L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
-            attribution: 'Analysis by Reinvestment Fund | Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            subdomains: 'abcd',
-            maxZoom: 19,
-            ext: 'png'
-
-          }).addTo(map);
-
+      L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}',
+        {
+          attribution: 'Analysis by Reinvestment Fund | Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          subdomains: 'abcd',
+          minZoom: 0,
+          maxZoom: 20,
+          ext: 'png'
+        }).addTo(map);
 
     </script>
 
