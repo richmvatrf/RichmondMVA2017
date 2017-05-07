@@ -9,14 +9,17 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/leaflet.css"/>
+    <link rel="stylesheet" href="http://dc-js.github.io/dc.js/css/dc.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/d3.js"></script>
     <script type="text/javascript" src="js/crossfilter.js"></script>
     <script type="text/javascript" src="js/dc.js"></script>
     <script type="text/javascript" src="js/leaflet.js"></script>
     <script type="text/javascript" src="js/dc-leaflet.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
-    
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      
     <style>
         body {
           padding-top: 50px;
@@ -25,12 +28,17 @@
           padding: 40px 80px;
           text-align: center;
         }
-        .dc-chart .axis text{
+        .dc-chart .axis text {
           font-size: 12px;
         }
-        #map{
+        #zaMap {
           width: 100%;
-        }        
+          height: 500px;
+        }   
+        .small-cont {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     </style>
     
   </head>
@@ -61,32 +69,48 @@
       <div class="starter-template">
         <h1>Explore Your Markets</h1>
         <p class="lead">Use the dashboard on this page to explore the housing markets in Richmond.</p>
+          <p><a id="all" href="#">reset</a></p>
       </div>
     </div>
+      
 
-      <div class="well">
-          <div id="map" style="height:500px"></div>
-      </div>
-
-    <div class="row">
+    <div class="row small-cont">
       <div class="col-xs-6 col-md-3">
-        <div class="dc-chart" id="###">Table 1</div>
+        <div class="dc-chart" id="Chart1">Table 1</div>
       </div>
       <div class="col-xs-6 col-md-3">
-        <div class="dc-chart" id="###">Table 2</div>
+        <div class="dc-chart" id="Chart2">Table 2</div>
       </div>
       <div class="col-xs-6 col-md-3">
         <div class="dc-chart" id="###">Table 3</div>
       </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="dc-chart" id="###">Table 4</div>
+      </div>        
     </div>
 
-    <div class="row well">
-      Table Goes Here      
-    </div>
-
-    <script>
+    <div class="small-cont">  
+        <div class="well"  style="height:550px">
+          <div class="map" id="zaMap"></div>
+        </div>
+    </div>      
       
-    </script>
+    <div class="small-cont">
+        <div class="col-xs-12">
+          <table class="table table-hover" id="data-table">
+            <thead>
+              <tr class="header">
+                <th>Block Group</th>
+                <th>MVA</th>
+                <th>Median Price</th>
+                <th>Density</th>
+              </tr>
+            </thead>
+          </table>
+        </div>     
+    </div>
+
+    <script type="text/javascript" src="dashboard.js"></script>
     
   </body>
 </html>
