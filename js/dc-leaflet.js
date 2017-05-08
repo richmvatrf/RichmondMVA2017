@@ -24,10 +24,14 @@
 
         var _tiles = function (map) {
             L.tileLayer(
-                'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-                {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }
+                'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}',
+        {
+          attribution: 'Analysis by Reinvestment Fund | Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          subdomains: 'abcd',
+          minZoom: 0,
+          maxZoom: 20,
+          ext: 'png'
+        }
             ).addTo(map);
         };
 
